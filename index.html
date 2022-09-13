@@ -328,6 +328,152 @@
         <div class="tab-pane fade container-connecter-arcade" id="se-connecter-arcade" role="tabpanel" aria-labelledby="se-connecter-arcade-tab">
             <h1>Exercise en classe: se connecter à arcade grâce à ssh</h1>
             <a href="https://laura-salas.github.io/exos/ex0.html" target="_blank">Lien vers l'exercise</a>
+            <h4>Solution:</h4>
+            <ol>
+                <li>
+                    <h6>Créer un compte DIRO si ce n'est pas déjà fait</h6>
+                    <p>
+                        <a href="https://laura-salas.github.io/mot_de_passe.html" target="_blank">Tuto créer un compte DIRO</a>
+                        <p>Suivez le tutoriel à la lettre et il ne devrait pas y avoir de problèmes</p>
+                    </p>
+                </li>
+                <li>
+                    <h6>Préalable à la connection au serveur du DIRO avec ssh</h6>
+                    <p>
+                        Ceux qui ont un système d'exploitation UNIX, ouvrez un terminal. Si vous ne savez pas 
+                        comment, googlez... (i.e. how to open a terminal in [macOS | linux]?).
+                    </p>
+                    <p>
+                        Ceux qui ont un système d'exploitation windows, je recommande de télécharger Putty et de partir 
+                        l'application. Ceux qui aimerait utiliser Linux sur leur ordinateur, téléchargez wsl ubuntu et 
+                        ouvrez un terminal ubuntu. (note: il est possible de faire la commande ssh sur le command line 
+                        de windows, mais certains étudiants ont rencontré des problèmes avec cette méthode qui ne 
+                        servenaient pas lorsqu'ils utilisaient Putty).
+                    </p>
+                </li>
+                <li>
+                    <h6>Se connecter au serveur DIRO avec la commande ssh</h6>
+                    <p>
+                        UNIX : entrer <kbd>ssh votreusername@arcade.iro.umontreal.ca</kbd> dans votre terminal. N'oubliez 
+                        pas de remplacer <span class="font-italic">votreusername</span> par votre username DIRO.
+                    </p>
+                    <div class="d-flex">
+                        <img src="./assets/putty.png" alt="">
+                        <p>
+                            Windows : dans Host Name, entrez votreusername@arcade.iro.umontreal.ca. N'oubliez pas de remplacer 
+                            <span class="font-italic">votreusername</span> par votre username DIRO. Le port doit être 22, et
+                            le type de connection ssh. Clickez Open.
+                        </p>
+                    </div>
+                    
+                </li>
+                <li>
+                    <h6>S'identifier au serveur</h6>
+                    <p>
+                        Entrez votre mot de passe DIRO. Il est normal que rien ne s'affiche lorsque vous tapperez le mot de 
+                        passe. N'ayez crainte, les touches sont enregistrées. Il suffit de tappez le mot de passe sans faire 
+                        d'erreurs. Et si vous faites une erreur, appuyer sur Enter et réessayer autant de fois que vous voulez.
+                    </p>
+                    <p>
+                        Après une connection réussie, votre terminal devrait montrer la quelque chose de similaire à l'image sous:
+                    </p>
+                    <img src="./assets/connection_to_DIRO.png" width="800" alt="">
+                </li>
+                <li>
+                    <h6>Naviguer jusqu'à la racine du serveur</h6>
+                    <p>
+                        Si vous faite la commande <kbd>pwd</kbd> (qui affiche le répertoire dans lequel on se situe), vous devriez
+                        voir à l'écran <span class="font-italic">/u/votreusername</span>. Nous voulons aller au répertoire
+                        <span class="font-italic">/home/www-ens/votreusername/public_html</span>. Pour ce faire, nous devons retourner
+                        à la racine (i.e. /). On utilise donc la commande <kbd>cd ..</kbd> 2 fois : la première fois pour se retrouver 
+                        dans le répertoire <span class="font-italic">/u</span>, la deuxième fois pour se retrouver dans le répertoire
+                        <span class="font-italic">/</span> . 
+                    </p>
+                    <p>
+                        Une fois à la racine, la commande <kbd>ls</kbd> nous imprime le contenu du répertoire racine. 
+                    </p>
+                    <img src="./assets/arcade_root.png" alt="">
+                    <p>
+                        On y retrouve (surligné en orange) le répertoire <span class="font-italic">home</span>. Dirigeons nous dans <span class="font-italic">home</span>
+                        avec <kbd>cd home</kbd>. Faisons <kbd>ls</kbd> (maintenant à partir du répertoire <span class="font-italic">home</span>) 
+                        et on retrouve (entre autre) le répertoire <span class="font-italic">www-ens</span>. Dirigeons-nous dans celui-ci: <kbd>cd www-ens</kbd>.
+                        Par la suite, dirigez-vous dans votre répertoire personnel: <kbd>cd votreusername</kbd> . Finalement, dans 
+                        <span class="font-italic">public_html</span>: <kbd>cd public_html</kbd>.
+                    </p>
+                    <img src="./assets/direction_public_html.png" alt="">
+                </li>
+                <li>
+                    <h6>Créer le répertoire pour notre cours et pour l'exercise</h6>
+                    <p>
+                        Tout d'abord, on remarque que notre répertoire <span class="font-italic">public_html</span> ne contient qu'un fichier 
+                        , soit <span class="font-italic">index.html</span>, grâce à la commande <kbd>ls</kbd>. Nous allons créer
+                        un répertoire appelé <span class="font-italic">ift1005</span> pour 'storer' nos sites webs. Pour 
+                        créer ce répertoire, on tape la commande <kbd>mkdir ift1005</kbd>. Puisque nous sommes dans le 
+                        répertoire <span class="font-italic">public_html</span>, le nouveau répertoire 
+                        <span class="font-italic">ift1005</span> sera créé dans ce dernier. Faire <kbd>ls</kbd> nous révelera
+                        le nouveau répertoire.
+                     </p>
+                     <p>
+                        Entrons dans notre nouveau répertoire: <kbd>cd ift1005</kbd>. Créons un nouveau répertoire intitulé tp0
+                        à l'intérieur de <span class="font-italic">ift1005</span>: <kbd>mkdir tp0</kbd>. Entrons dans ce nouveau répertoire:
+                        <kbd>cd tp0</kbd>.
+                     </p>
+                     <img src="./assets/create_ift1005_and_tp0.png" alt="">
+                </li>
+                <li>
+                    <h6>Créer notre premier fichier html et y ajouter du contenu</h6>
+                    <p>
+                        Créons notre fichier initulé <span class="font-italic">index.html</span> en tappant la commande
+                        <kbd>touch index.html</kbd>. Pour 'éditer' un fichier, on utilise un éditeur de texte pour terminal. 
+                        Il en existe plusieurs, nous utiliseront <span class="font-italic">nano</span>. Pour éditer notre fichier
+                        <span class="font-italic">index.html</span> avec nano, tappons la commande <kbd>nano index.html</kbd>.
+                        L'éditeur de texte nano s'ouvriera prêt à 'éditer' notre fichier. Ajoutez-y le texte suivant (Vous pouvez 
+                        modifier le texte se trouvant en les tags h1 pour ce qui vous plaît):
+                    </p>
+                    <p>
+                        <code>&lt;hmtl&gt;&lt;h1&gt;Sample text here...&lt;/h1&gt;&lt;/hmtl&gt;</code>
+                    </p>
+                    <img src="./assets/nano.png" alt="">
+                    <p>
+                        Pour fermer nano, faire <kbd>ctrl + x</kbd> pour Exit, <kbd>y</kbd> pour sauvegarder les modifications, puis
+                        <kbd>Enter</kbd> pour confirmer de sauvegarder les modifications dans le fichier intitulé 
+                        <span class="font-italic">index.html</span>.
+                    </p>
+                </li>
+                <li>
+                    <h6>Visitez votre site (?)</h6>
+                    <p>Ouvrez une nouvelle page dans votre browser de préférence. Dans la barre de recherche, entrer l'url suivant:</p>
+                    <p>https://www-ens.iro.umontreal.ca/~votreusername/ift1005/tp0/</p>
+                    <p>Note: il faut remplace votreusername par votre username et garder le ~.</p>
+                    <p>Oups! Forbidden</p>
+                    <img src="./assets/forbidden.png" alt="">
+                </li>
+                <li>
+                    <h6>Fixer le forbidden</h6>
+                    <p>
+                        Le browser ne peut pas avoir accès au fichier index.html parce qu'il n'a pas les permissions
+                        nécessaire pour lire le fichier <span class="font-italic">index.html</span>. Il faut changer les permissions
+                        des fichiers de notre site web ainsi que des répertoires qui contiennent nos fichiers jusqu'au répertoire 
+                        <span class="font-italic">public_html</span> inclusivement. Nous voulons que le propriétaire conserve toutes les permissions (7 = rwx)
+                        et donner au groupe et aux autres utilisateurs les permissions de lecture et d'écriture (5 = r-w).
+                    </p>
+                    <p>
+                        Puisqu'on se situe présentement dans <span class="font-italic">tp0</span>, commençons par changer les droits
+                        de <span class="font-italic">index.html</span>. (note: a tout moment, effectuer <kbd>ls -l</kbd> pour voir
+                        les permissions sur vos fichiers et répertoires). Tapper <kbd>chmod 755 index.html</kbd>. Changons maintenant
+                        les permissions sur le répertoire <span class="font-italic">tp0</span>: <kbd>cd ..</kbd> puis 
+                        <kbd>chmod 755 tp0</kbd>. Changons ceux de <span class="font-italic">ift1005</span>: <kbd>cd ..</kbd> puis
+                        <kbd>chmod 755 ift1005</kbd>. Finalement, changons ceux <span class="font-italic">public_html</span>:
+                        <kbd>cd ..</kbd> puis <kbd>chmod 755 public_html</kbd>.
+                    </p>
+                    <img src="./assets/change_permission.png" alt="">
+                </li>
+                <li>
+                    <h6>Visitez votre site !!!</h6>
+                    <p>Rafraichir la page qui affichait forbidden et voilà!</p>
+                </li>
+
+            </ol>
         </div>
     </div>
 

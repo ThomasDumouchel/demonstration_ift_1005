@@ -1,8 +1,9 @@
-.no-bullet{
-    list-style: none;
-}
-
-.container-commande-linux, .container-connecter-arcade{
+.page-body{
     margin: auto;
     width: 1000px;
+}
+.code-section{
+    background-color: lightgrey;
+    border-radius: 4px;;
+    text-align: left !important;
 }

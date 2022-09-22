@@ -1,0 +1,8 @@
+.no-bullet{
+    list-style: none;
+}
+
+.container-commande-linux, .container-connecter-arcade{
+    margin: auto;
+    width: 1000px;
+}

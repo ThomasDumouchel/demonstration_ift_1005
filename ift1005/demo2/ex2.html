@@ -1,0 +1,47 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Exercise 2</title>
+    </head>
+    <body>
+       <h1>My form</h1>
+       <form action="https://www.w3schools.com/action_page.php" method="get" target="_blank">
+        <div style="padding: 5px 0px;">
+            <label for="fname">First name:</label>
+            <input type="text" id="fname" name="fname">
+        </div>
+        <div style="padding: 5px 0px;"> 
+            <label for="lname">Last name:</label>
+            <input type="text" id="lname" name="lname">
+        </div>
+        <div style="padding: 5px 0px;"> 
+            <!-- multiple pour permettre plusieurs choix -->
+            <label for="cars">Choose a car:</label>
+                <select id="cars" name="cars">
+                <option value="volvo">Volvo</option>
+                <option value="saab">Saab</option>
+                <option value="fiat">Fiat</option>
+                <option value="audi">Audi</option>
+            </select>
+        </div>
+        <div style="padding: 5px 0px;"> 
+            <textarea name="message" cols="30" rows="10">The bird is fat</textarea>
+        </div>
+        <div style="padding: 5px 0px;">
+            <input type="radio" id="html" name="fav_language" value="HTML">
+            <label for="html">HTML</label><br>
+            <input type="radio" id="css" name="fav_language" value="CSS">
+            <label for="css">CSS</label><br>
+            <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+            <label for="javascript">JavaScript</label><br><br>
+        </div>
+
+        <input type="submit" value="Submit">
+      </form>
+
+    </body>
+</html>

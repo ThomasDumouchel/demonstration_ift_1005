@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Global style sheet -->
+    <link rel="stylesheet" href="/style.css"/>
+    <title>Démo 3</title>
+</head>
+<body>
+    <div id="navigation"></div>
+
+    <div class="page-body">
+        <h1>Expression régulière: Regex</h1>
+        <div class="demo3subject">
+            <a href="https://www.youtube.com/watch?v=rhzKDrUiJVk&ab_channel=WebDevSimplified" target="_blank">Un bon tutorial</a><br>
+            <a href="https://regexr.com/" target="_blank">Un lien pour pratiquer et tester</a>
+        </div>
+        <div class="demo3subject">
+            <h3>C'est quoi?</h3>
+            <p>
+                Une méthode pour chercher à travers un texte un string suivant un certain pattern. <br>
+                L'expression régulière (regex), c'est le pattern. 
+            </p>
+            <h3>C'est comment?</h3>
+            <p>
+                Voici les règles pour écrire un regex: 
+            </p>
+            <ol>
+                <li>
+                    <div class="font-weight-bold">Format</div>
+                    <p>
+                        Voici le format: / ...regex... /g <br>
+                        On écrit notre pattern entre les deux / <br>
+                        Les charactères qui viennent après le deuxième / sont des flags. Ici, g
+                    </p>
+                </li>
+                <li>
+                    <div class="font-weight-bold">Quantificateurs</div>
+                    <p>Toujours appliqué sur ce qui est à sa gauche</p>
+                    <ul>
+                        <li>+ : 1 ou plus</li>
+                        <li>? : 0 ou 1</li>
+                        <li>* : 0 ou plus</li>
+                        <li>
+                            {min, max} : entre min inclusivement et max inclusivment
+                        </li>
+                    </ul>                    
+                </li>
+                <li>
+                    <div class="font-weight-bold">Ensemble et range</div>
+                    <ul>
+                        <li>
+                            [ab] : match le char a ou b
+                        </li>
+                        <li>
+                            [ab 2] : match le char a ou b ou " " (l'espace) ou 2
+                        </li>
+                        <li>
+                            [a-g] : match les char de a à g. Équivalent à [abcdefg] <br>
+                            [A-G] : match les char de A à G. Équivalent à [ABCDEFG] <br>
+                            [0-9] : match les char de 0 à 9. Équivalent à [0123456789]
+                        </li>
+                        
+                    </ul>
+                </li>
+                <li>
+                    <div class="font-weight-bold">Groupement</div>
+                    <ul>
+                        <li>
+                            (koala|panda) : match soit koala soit panda
+                        </li>
+                        <li>
+                            (abc){2,3} : match abcabc ou abcabcabc
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="font-weight-bold">Début de ...</div>
+                    <ul>
+                        <li>
+                            <span class="font-weight-bold">texte</span>. Avec ^
+                        </li>
+                        <li>
+                            <span class="font-weight-bold">mot</span>. Avec \b au début <br>
+                            ex. pattern: \bis[a-zA-Z]* string = "This island is beautiful" matched_strings = ["island", "is"], mais pas "This"
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="font-weight-bold">Fin de ...</div>
+                    <ul>
+                        <li>
+                            <span class="font-weight-bold">texte</span>. Avec $
+                        </li>
+                        <li>
+                            <span class="font-weight-bold">mot</span>. Avec \b à la fin<br>
+                            ex. pattern: [a-zA-Z]*is\b string = "This island is beautiful" matched_strings = ["This", "is"], mais pas "island"
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <div class="font-weight-bold">Chars spéciaux</div>
+                    <p>
+                        Pour les ajouter dans nos pattern, mettre \ en préfixe. <br>
+                        ex. \+ ou \.
+                    </p>
+                    <p>
+                        Liste: ^ { } ( ) [ ] + * . $ | ^  \ 
+                    </p>
+                </li>
+                <li>
+                    <div class="font-weight-bold">Metas séquences</div>
+                    <ul>
+                        <li>
+                            <span class="font-weight-bold">.</span> : tous, sauf le saut de ligne
+                        </li>
+                        <li>
+                            <span class="font-weight-bold">\s</span> : tous les espaces
+                        </li>
+                        <li>
+                            <span class="font-weight-bold">\d</span> : tous les chiffres
+                        </li>
+                        <li>
+                            <span class="font-weight-bold">\w</span> : tous les chars alpanumériques et underscore (_)
+                        </li>
+                    </ul>
+                </li>
+            </ol>
+        </div>
+
+    </div>
+
+    <!-- Nav Import Script -->
+    <script src="/ift1005/components/nav/nav.js"></script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

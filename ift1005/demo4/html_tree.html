@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    <!-- Global style sheet -->
+    <link rel="stylesheet" href="/style.css"/>
+
+    <link rel="stylesheet" href="demo4_styles.css"/>
+    <title>Démo 4</title>
+</head>
+<body>
+    <div id="navigation"></div>
+
+    <div class="page-body">
+        <h1>L'arbre d'élément html d'une page web</h1>
+        <p>
+            C'est la manière que notre code est stocké dans un browser. Il est utile de comprendre ça pour 
+            savoir comment accèder à un élément html puis de le modifier, soit avec CSS ou avec Javascript.
+        </p>
+
+        <p>Soit l'exemple de code html suivant:</p>
+        <pre class="code-section">
+            <code>
+                &lt;html&gt;
+                    &lt;head&gt;
+                        &lt;link rel="stylesheet" href=""&gt;
+                        &lt;title&gt;Titre...&lt;/title&gt;
+                    &lt;/head&gt;
+                    &lt;body&gt;
+                        &lt;header&gt;
+                            ...
+                        &lt;/header&gt;
+                        &lt;main&gt;
+                            &lt;section&gt;
+                                &lt;h1&gt;
+                                    Titre de ma section...
+                                &lt;/h1&gt;
+                                &lt;div&gt;
+                                    Du contenu...
+                                &lt;/div&gt;
+                            &lt;/section&gt;
+                        &lt;/main&gt;
+                        &lt;footer&gt;
+                            ...
+                        &lt;/footer&gt;
+                    &lt;/body&gt;
+                &lt;/html&gt;
+            </code>
+        </pre>
+        <p>Le browser garde le code dans une structure qu'on appele un arbre, comme ça:</p>
+        <img src="assets/arbre.png" alt="">
+        <p>Glossaire d'un arbre:</p>
+        <img src="assets/tree-data-struct.png" alt="">
+
+
+
+
+
+
+        
+
+    </div>
+
+    <!-- Nav Import Script -->
+    <script src="/ift1005/components/nav/nav.js"></script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

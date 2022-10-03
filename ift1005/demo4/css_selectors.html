@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+    <!-- Global style sheet -->
+    <link rel="stylesheet" href="/style.css"/>
+    
+    <link rel="stylesheet" href="demo4_styles.css"/>
+    <title>Démo 4</title>
+</head>
+<body>
+    <div id="navigation"></div>
+
+    <div class="page-body">
+        <h1>Sélecteur CSS: comment appliquer un style sur nos éléments html</h1>
+        
+        <a href="https://www.w3schools.com/cssref/css_selectors.asp">Liste exhaustive des sélécteurs</a>
+
+        <pre>
+            <code>
+                /* 
+                Pour accèder une classe, c'est un . suivit du nom de la classe
+
+                Appliquera le style background-color: blue; à tous les éléments de notre code 
+                qui possède l'attribut class="className1"
+                */
+                .className1 {
+                    background-color: blue;
+                }
+
+                /* 
+                Pour accèder un élément avec un certain id, c'est un # suivit du nom du id
+
+                Appliquera le style background-color: blue; à tous les éléments de notre code 
+                qui possèdent l'attribut class="className1"
+                */
+                #idname {
+                    background-color: blue;
+                }
+
+                /* 
+                Appliquera le style background-color: blue; à tous les éléments de notre code 
+                qui possèdent l'attribut class avec className1 et className2
+                */
+                .className1.className2 {
+                    background-color: blue;
+                }
+
+                /* 
+                Appliquera le style background-color: blue; à tous les éléments de notre code 
+                qui sont décendant d'un élément de classe className1 et qui possède la classe className2
+                */
+                .className1 .className2 {
+                    background-color: blue;
+                }
+
+                /* 
+                Appliquera le style background-color: blue; à absolument tous les éléments
+                */
+                * {
+                    background-color: blue;
+                }
+
+                /* 
+                Appliquera le style background-color: blue; à tous les div
+
+                Peut-être utilisé avec tous les éléments
+                */
+                div {
+                    background-color: blue;
+                }
+
+                /* 
+                Appliquera le style background-color: blue; à tous les div ayant la classe className1
+                */
+                div.className1 {
+                    background-color: blue;
+                }
+
+                /* 
+                Appliquera le style background-color: blue; à tous les div et tous les p
+                */
+                div, p {
+                    background-color: blue;
+                }
+
+                /* 
+                Appliquera le style background-color: blue; à tous les p descendant d'un div
+                */
+                div, p {
+                    background-color: blue;
+                }
+
+                /* 
+                Appliquera le style background-color: blue; à tous les p qui sont descendant direct d'un div
+                */
+                div > p {
+                    background-color: blue;
+                }
+            </code>
+        </pre>
+
+        <h4>Exemple: </h4>
+        <p>Soit le code html suivant</p>
+        
+        <pre class="code-section">
+            <code>
+            &lt;div id="root"&gt;
+
+                &lt;div class="children-of-root" id="first-child"&gt;
+                    Texte dans div 1
+                    &lt;a href=""&gt;Lien 1 de div 1&lt;/a&gt;
+                    &lt;div&gt;
+                        &lt;a href=""&gt;Lien 2 de div 1&lt;/a&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;p class="children-of-root"&gt;
+                    Premier paragraphe
+                &lt;/p&gt;
+
+                &lt;div class="children-of-root" id="second-child"&gt;
+                    Texte dans div 2
+                    &lt;a href=""&gt;Lien 1 de div 2&lt;/a&gt;
+                    &lt;div&gt;
+                        &lt;a href=""&gt;Lien 2 de div 2&lt;/a&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+
+                &lt;p class="children-of-root"&gt;
+                    Deuxieme paragraphe
+                &lt;/p&gt;
+
+            &lt;/div&gt;
+            </code>
+        </pre>
+
+        <div id="root">
+
+            <div class="children-of-root" id="first-child">
+                Texte dans div 1
+                <a href="">Lien 1 de div 1</a>
+                <div>
+                    <a href="">Lien 2 de div 1</a>
+                </div>
+            </div>
+
+            <p class="children-of-root">
+                Premier paragraphe
+            </p>
+
+            <div class="children-of-root" id="second-child">
+                Texte dans div 2
+                <a href="">Lien 1 de div 2</a>
+                <div>
+                    <a href="">Lien 2 de div 2</a>
+                </div>
+            </div>
+
+            <p class="children-of-root">
+                Deuxieme paragraphe
+            </p>
+
+        </div>
+
+        <!-- 1. Ajouter width, height et background-color au div de id="root"  -->
+        <!-- 2.  -->
+
+    </div>
+
+    <!-- Nav Import Script -->
+    <script src="/ift1005/components/nav/nav.js"></script>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.14.7/dist/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>

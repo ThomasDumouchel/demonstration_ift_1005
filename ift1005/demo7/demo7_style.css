@@ -1,0 +1,136 @@
+body, html{
+    font-family: 'Arial', sans-serif;
+}
+
+/* Barre de navigation */
+header a img{
+    height: 100%;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    background-color: lightgreen;
+    height: 60px;
+}
+
+header nav ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    list-style: none;
+}
+
+header nav ul a{
+    padding: 12px;
+}
+
+header nav ul a:hover{
+    background-color: darkgreen;
+}
+
+header a{
+    text-decoration: none;
+    color: white;
+}
+
+
+.blabla{
+    position: relative;
+}
+
+.shopping-cart .fa-circle{
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.shopping-cart .fa-shopping-cart{
+    color: red;
+}
+
+.count{
+    position: absolute;
+    top: 51px;
+    right: 22px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.active{
+    background-color: lightgrey;
+}
+
+/* products */
+.gauche{
+    width: 25%;
+    background-color: aquamarine;
+}
+
+.droite{
+    width: 75%;
+}
+
+.products-main{
+    display: flex;
+    width: 100%;
+}
+
+.products-title{
+    display: flex;
+    justify-content: space-between;
+}
+
+#products-list{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+#products-list a{
+    border: 1px solid grey;
+    border-radius: 4px;
+    text-decoration: none;
+    color: black;
+    width: 30%;
+    margin-bottom: 20px;
+}
+
+#products-list a img{
+    width: 100%;
+}
+
+#products-list a p{
+    text-align: right;
+}
+
+.gauche section ul{
+    border: 1px solid grey;
+    border-radius: 4px;
+    list-style: none;
+    padding: 0px;
+}
+
+.gauche section ul li{
+    padding: 10px;
+}
+
+/* apply background color yellow when hovered */
+.gauche section ul li:hover{
+    background-color: yellow;
+    transition: 0.2s ease-out;
+}
+
+/* apply border-bottom except on last child  */
+.gauche section ul li:not(:last-child){
+    border-bottom: 1px solid grey;
+}
+
+/* Footer */
+footer{
+    background-color: lightgrey;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

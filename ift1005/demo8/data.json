@@ -1,0 +1,32 @@
+[
+    {
+        "id": "1",
+        "name": "John",
+        "age": "20",
+        "address": {
+            "street": "123 Main St",
+            "city": "New York",
+            "state": "NY"
+        }
+    },
+    {
+        "id": "2",
+        "name": "Mary",
+        "age": "21",
+        "address": {
+            "street": "456 Main St",
+            "city": "New York",
+            "state": "NY"
+        }
+    },
+    {
+        "id": "3",
+        "name": "Peter",
+        "age": "22",
+        "address": {
+            "street": "789 Main St",
+            "city": "New York",
+            "state": "NY"
+        }
+    }
+]

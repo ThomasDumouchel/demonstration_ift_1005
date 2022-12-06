@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+</head>
+<body>
+    <h1>Home</h1>
+    <p>
+        This is the home page.
+    </p>
+    <button onclick="getCatsJson()">Get cats json</button>
+    <button onclick="getCatsXml()">Get cats xml</button>
+    <div id="cats">
+
+    </div>
+
+
+    <script>
+        const catsDiv = document.getElementById('cats');
+
+        const getCatsJson = () => {
+            console.log('Getting cats json...');
+            fetch('/cats.json')
+                .then((response) => response.json())
+                .then((data) => {
+                    data.forEach((cat) => {
+                        catsDiv.innerHTML += 
+                        `<p>
+                            ${cat.name} 
+                            ${cat.age}
+                            ${cat.favoriteFood}
+                        </p>`;
+                    });
+                })
+        }
+
+        const getCatsXml = () => {
+            console.log('Getting cats xml...');
+            fetch('/cats.xml')
+                .then((response) => response.text())
+                .then((data) => {
+                    const parser = new DOMParser();
+                    const xml = parser.parseFromString(data, 'text/xml');
+                    const cats = xml.querySelectorAll('cats');
+                    console.log(cats);
+                    cats.forEach((cat) => {
+                        catsDiv.innerHTML += 
+                        `<p>
+                            ${cat.querySelector('name').textContent} 
+                            ${cat.querySelector('age').textContent}
+                            ${cat.querySelector('favoriteFood').textContent}
+                        </p>`;
+                    });
+                })
+        }
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>OnlineShop - Produit</title>
+  <link rel="stylesheet" type="text/css" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css">
+  <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+</head>
+<body>
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <a href="./index.html">
+          <img alt="logo" src="./assets/img/logo.svg" title="Accueil">
+        </a>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="./index.html">Accueil</a></li>
+          <li class="active"><a href="./products.html">Produits</a></li>
+          <li><a href="./contact.html">Contact</a></li>
+          <li>
+            <a class="shopping-cart" href="./shopping-cart.html" title="Panier">
+              <span class="fa-stack fa-lg">
+                <i class="fa fa-circle fa-stack-2x fa-inverse"></i>
+                <i class="fa fa-shopping-cart fa-stack-1x"></i>
+              </span>
+              <span class="count">3</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <article>
+      <h1 id="product-title">Manette Xbox 360</h1>
+      <div class="row">
+        <div class="col">
+          <img id="product-image" alt="Manette Xbox 360" src="./assets/img/xbox-controller.png">
+        </div>
+        <div class="col">
+          <section>
+            <h2>Description</h2>
+            <p id="product-description">Manette pouvant être branchée à une console Xbox 360 et un PC. Cette manette vous permettra de jouer à vos jeux vidéo préférés.
+            De plus, cette manette est sans fil et comporte un port pour casque d'écoute.</p>
+          </section>
+          <section>
+            <h2>Caractéristiques</h2>
+            <ul id="product-caracteristics">
+              <li>Manette sans fil 2.4GHz avec adapteur USB</li>
+              <li>Compacte et ergonomique</li>
+              <li>Port pour casque d'écoute pour Xbox Live</li>
+            </ul>
+          </section>
+          <hr>
+          <form class="pull-right" id="add-to-cart">
+            <label for="product-quantity">Quantité:</label>
+            <input class="form-control" id="product-quantity" type="number" value="1" min="1">
+            <button class="btn" title="Ajouter au panier" type="submit">
+              <i class="fa fa-cart-plus"></i>&nbsp; Ajouter
+            </button>
+          </form>
+          <p>Prix: <strong>29,99&thinsp;$</strong></p>
+        </div>
+      </div>
+    </article>
+  </main>
+  <footer>
+    <p>Par Amal Ben Abdellah</p>
+  </footer>
+
+  <script type="text/javascript" src="./assets/jquery/jquery-3.5.0.min.js"></script>
+  <script>
+
+    function displayProduct(products){
+      // get id from url
+      const urlParams = new URLSearchParams(window.location.search);
+      const id = urlParams.get('id');
+
+      // get product from products
+      const product = products.find(product => product.id == id);
+
+      // display product
+      $('#product-title').text(product.name);
+      $('#product-image').attr('src', './assets/img/' + product.image);
+      $('#product-description').text(product.description);
+    }
+
+    $.ajax({
+      url: './data/products.json',
+      type: 'GET',
+      dataType: 'json',
+      success: (data) => {
+          console.log(data);
+          displayProduct(data);
+        },
+      error: (error) => {
+        console.log(error);
+        }
+      });
+
+    // listen to form submit
+    $('#add-to-cart').submit((event) => {
+      event.preventDefault();
+
+      // get product id
+      const urlParams = new URLSearchParams(window.location.search);
+      const id = urlParams.get('id');
+
+      // get product quantity
+      const quantity = $('#product-quantity').val();
+
+      // get product from local storage
+      let cart = JSON.parse(localStorage.getItem('userCart'));
+
+      // if products is null, create an empty array
+      if(cart == null){
+        cart = [];
+      }
+
+      // check if product already exists in products
+      const product = cart.find((product) => product.id == id);
+
+      if(product != null){
+        // if product exists, update quantity
+        product.quantity = parseInt(product.quantity) + parseInt(quantity);
+      } else {
+        // if product doesn't exist, add it to products
+        cart.push({
+          id: id,
+          quantity: quantity
+        });
+      }
+
+      // save products in local storage
+      localStorage.setItem('userCart', JSON.stringify(cart));
+
+      // update shopping cart count
+      $('.count').text(cart.length);
+    });
+
+
+
+  </script>
+</body>
+</html>
